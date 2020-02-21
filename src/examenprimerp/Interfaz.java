@@ -47,7 +47,7 @@ public class Interfaz extends Application {
         
         tb.getColumns().addAll(nombre, apellido, matricula, sexo, edad, peso);
         
-        nombre.setCellValueFactory(new PropertyValueFactory<>("Nombre"));
+        nombre.setCellValueFactory(new PropertyValueFactory<>("nom"));
         apellido.setCellValueFactory(new PropertyValueFactory<>("ape"));
         matricula.setCellValueFactory(new PropertyValueFactory<>("mat"));
         sexo.setCellValueFactory(new PropertyValueFactory<>("sexo"));
@@ -69,14 +69,18 @@ public class Interfaz extends Application {
     }
     
     public static void Crear(){
-        List<Alumnos> = ;
+        List<Alumnos> li = Logica.lista;
         ObservableList<Alumnos> list = FXCollections.observableArrayList();
         
-        for (Alumnos clonar : Logica.lista) {
-            list.add(clonar);
-            System.err.println("1");
-        }
         
+        for (Alumnos clonar : li) {
+            list.add(clonar);
+            System.err.println(clonar.nom);
+        }
+        System.err.println(list.get(0).nom);
+         
+        tb.setItems(list);
+        tb.refresh();
         tb.setItems(list);
         tb.refresh();
     }
